@@ -25,7 +25,7 @@ const EventEditView: React.FC<IEventEditViewProps> = (props) => {
 
   const eventList = useSelector(getEventList);
 
-  const [title, setTitle] = useState<string | undefined>(data?.title);
+  const [title, setTitle] = useState<string>(data.title);
   const [start, setStart] = useState<any>(data?.start);
   const [end, setend] = useState<any>(data?.end);
 
@@ -52,14 +52,14 @@ const EventEditView: React.FC<IEventEditViewProps> = (props) => {
     handleClose();
   };
 
-  const handleEditEvent = () => {
-    dispatch(
-      editEvent({
-        id: data.id,
-        title: title,
-      })
+  const handleEditEvent = (id: string, title: string) => {
+    const cloneEventList = lodash.clone(eventList);
+
+    const newEventList = cloneEventList.map((item: ITimetableEvent) =>
+      item.id === id ? { ...item, title: title } : item
     );
 
+    dispatch(editEvent(newEventList));
     handleClose();
   };
 
@@ -97,7 +97,7 @@ const EventEditView: React.FC<IEventEditViewProps> = (props) => {
         </div>
         <div
           className={`${classNamePrefix}__button event-edit-confirm`}
-          onClick={handleEditEvent}
+          onClick={() => handleEditEvent(data.id, title)}
         >
           <span>Confirm Edit</span>
         </div>

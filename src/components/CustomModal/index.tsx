@@ -3,7 +3,6 @@ import "./styles.scss";
 import { useSelector } from "react-redux";
 import {
   modalData,
-  modalSize,
   modalStatus,
   modalTemplate,
 } from "../../store/selector/RootSelector";
@@ -11,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { closeModal } from "../../store/components/customModal/modalSlice";
 import { Modal } from "antd";
 import EventEditView from "src/views/event-edit-view";
+import EventCreateView from "src/views/event-create-view";
 
 const classNamePrefix = "custom-modal";
 
@@ -20,10 +20,11 @@ function CustomModal() {
   const isOpen = useSelector(modalStatus);
   const template = useSelector(modalTemplate);
   const data = useSelector(modalData);
-  const size = useSelector(modalSize);
 
   const generateContent = (template: string) => {
     switch (template) {
+      case "event-create-view":
+        return <EventCreateView data={data} handleClose={handleClose} />;
       case "event-edit-view":
         return <EventEditView data={data} handleClose={handleClose} />;
       default:

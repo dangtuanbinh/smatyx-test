@@ -26,11 +26,7 @@ const customModal = createSlice({
       state.data.push(action.payload);
     },
     editEvent: (state: ITimetableList, action: PayloadAction<any>) => {
-      state.data = state.data.map((item) =>
-        item.id === action.payload.id
-          ? { ...item, title: action.payload }
-          : item
-      );
+      state.data = action.payload
     },
     deleteEvent: (state: ITimetableList, action: PayloadAction<number>) => {
       state.data.splice(action.payload, 1);

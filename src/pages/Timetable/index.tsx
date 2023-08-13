@@ -3,7 +3,6 @@ import "./styles.scss";
 import { Calendar, Views, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 import { addEvent } from "src/store/components/timetable/timetableSlice";
 import { useSelector } from "react-redux";
 import { getEventList } from "src/store/selector/RootSelector";
@@ -18,23 +17,16 @@ const Timetable = () => {
 
   const eventList = useSelector(getEventList);
 
-  console.log(eventList);
-
   const localizer = momentLocalizer(moment);
 
   const handleSelectSlot = useCallback(
     ({ start, end }: any) => {
-      const title = window.prompt("New Event name");
-      if (title) {
-        dispatch(
-          addEvent({
-            id: uuidv4(),
-            title: title,
-            start: start,
-            end: end,
-          })
-        );
-      }
+      dispatch(
+        openModal({
+          template: "event-create-view",
+          data: { start, end },
+        })
+      );
     },
     [dispatch]
   );
