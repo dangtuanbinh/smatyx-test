@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { PrivateRoutes, PublicRoutes } from "./routers";
 import Layout from "./components/layout";
 import "react-big-calendar/lib/css/react-big-calendar.css"
+import CustomModal from "./components/CustomModal";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           ))}
         </Route>
       </Routes>
+
+      <CustomModal />
     </div>
   );
 }

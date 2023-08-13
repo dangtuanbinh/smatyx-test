@@ -6,8 +6,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorkerRegistration";
 import store from "./store/store";
-// for translation
-// import "./locales/config";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
