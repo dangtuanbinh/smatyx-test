@@ -1,17 +1,18 @@
-import React from "react";
 import "./style.scss";
 import { Button, Checkbox, Form, Input } from "antd";
-import { useNavigate, useLocation } from "react-router-dom";
-
-const onFinish = (values: any) => {
-  console.log("Received values of form: ", values);
-};
+import { useNavigate } from "react-router-dom";
 
 function UserLogin() {
+  const navigate = useNavigate();
+
   const [form] = Form.useForm();
   const userName = Form.useWatch("username", form);
   const password = Form.useWatch("password", form);
-  const navigate = useNavigate();
+
+  const onFinish = (values: any) => {
+    console.log("Received values of form: ", values);
+    navigate("/")
+  };
 
   return (
     <Form
@@ -62,7 +63,7 @@ function UserLogin() {
           Log in
         </Button>
         <div className="register-group">
-          Don't hava an account?{" "}
+          Don't have an account?{" "}
           <div onClick={() => navigate("/register")} className="register-now">
             Register now!
           </div>

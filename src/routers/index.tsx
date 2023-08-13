@@ -1,19 +1,27 @@
 import Login from "../pages/Login";
 import Main from "../pages/Main";
-import UserRegister from "../pages/Login/Register";
+import Timetable from "src/pages/Timetable";
 
 export const PrivateRoutes = [
   {
     path: "",
     element: <Main />,
   },
+  {
+    path: "/timetable",
+    element: <Timetable />
+  },
+  {
+    path: "/user",
+    element: <Timetable />
+  },
+  {
+    path: "/settings",
+    element: <Timetable />
+  }
 ];
 
 export const PublicRoutes = [
-  {
-    path: "register",
-    element: <UserRegister />,
-  },
   {
     path: "",
     element: <Login />,
