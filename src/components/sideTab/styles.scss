@@ -1,0 +1,39 @@
+.side-tab {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 210px;
+  height: 100vh;
+
+  background: #484c51;
+
+  &__header {
+    margin: 30px 26px 20px;
+  }
+
+  &__menu-list {
+    margin-top: 20px;
+  }
+
+  &__menu-item {
+    margin-bottom: 34px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 34px;
+    color: #ffffff;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 90px;
+
+    margin: 18px 27px 40px;
+  }
+}
