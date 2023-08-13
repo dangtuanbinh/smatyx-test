@@ -15,20 +15,7 @@ const SideTab = () => {
       path: "/timetable",
       onClick: () => {
         navigate("/timetable");
-        console.log("tab clicked");
       },
-    },
-    {
-      id: 2,
-      title: "User",
-      path: "/user",
-      onClick: () => navigate("/user"),
-    },
-    {
-      id: 3,
-      title: "Settings",
-      path: "/settings",
-      onClick: () => navigate("/settings"),
     },
   ];
 

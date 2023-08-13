@@ -22,21 +22,10 @@ function CustomModal() {
   const data = useSelector(modalData);
   const size = useSelector(modalSize);
 
-  const renderSize = (modalSize: string) => {
-    switch (modalSize) {
-      case "large":
-        return 713;
-      case "mormal":
-        return 460;
-      default:
-        return;
-    }
-  };
-
   const generateContent = (template: string) => {
     switch (template) {
-      case "event-edit-modal":
-        return <EventEditView data={data} />;
+      case "event-edit-view":
+        return <EventEditView data={data} handleClose={handleClose} />;
       default:
         return;
     }
@@ -53,8 +42,7 @@ function CustomModal() {
       closable={false}
       onCancel={handleClose}
       wrapClassName="wrapper"
-      style={{ width: renderSize(size) }}
-      width={renderSize(size)}
+      width={400}
       footer={null}
       centered={true}
       zIndex={2000}

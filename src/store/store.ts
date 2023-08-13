@@ -7,11 +7,13 @@ import {
 import authReducer from "./components/auth/authSlice";
 import { authApi } from "./components/auth/authApi";
 import modalReduer from "./components/customModal/modalSlice";
+import dialogReducer from "./components/customDialog/dialogSlice";
 import timetableReducer from "./components/timetable/timetableSlice";
 
 const rootReducer = {
   auth: authReducer,
   modal: modalReduer,
+  dialog: dialogReducer,
   timetable: timetableReducer,
   [authApi.reducerPath]: authApi.reducer,
 };

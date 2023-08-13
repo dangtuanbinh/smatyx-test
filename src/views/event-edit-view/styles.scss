@@ -1,3 +1,69 @@
-.event-edit-view{
-    
+.event-edit-view {
+  width: 100%;
+
+  padding: 20px;
+
+  &__info-item {
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    div {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+
+      border: 1px solid rgb(192, 188, 188);
+      border-radius: 8px;
+
+      padding-left: 12px;
+    }
+  }
+
+  &__button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin: 20px 0;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 140px;
+    height: 50px;
+
+    margin: 0 6px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+
+  .event-delete {
+    background: red;
+  }
+
+  .event-edit-confirm {
+    background: rgb(124, 101, 255);
+  }
 }

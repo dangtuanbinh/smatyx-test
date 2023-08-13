@@ -1,0 +1,147 @@
+.custom-dialog.ant-modal {
+  width: unset !important;
+  height: unset !important;
+}
+.custom-dialog {
+  .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 4px 30px rgba(141, 147, 154, 0.05);
+    border-radius: 12px;
+    padding: 0;
+    width: unset;
+    height: unset;
+  }
+  .ant-modal-body {
+    padding: 0;
+  }
+  .dialog-info {
+    padding: 46px 60px 34px 60px;
+    background: #ffffff;
+    border-radius: 12px;
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--dgray-d-gray-600, #757575);
+      text-align: center;
+      /* Body_Medium/Body7_Medium */
+      font-family: Noto Sans KR;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26px;
+      white-space: pre-wrap;
+    }
+    .footer__dialog {
+      margin-top: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 140px;
+        height: 50px;
+
+        border-radius: 4px;
+        background: #70c7ac;
+
+        cursor: pointer;
+
+        span {
+          font-family: Noto Sans KR;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .bt55px {
+    margin-bottom: 55px;
+  }
+  .dialog-confirm {
+    padding: 40px 20px 30px 20px;
+    // width: 330px;
+    height: 200px;
+    .title-wrapper {
+      margin-bottom: 40px;
+
+      .title {
+        color: var(--dgray-d-gray-600, #757575);
+        text-align: center;
+        /* Body_Medium/Body7_Medium */
+        font-family: Noto Sans KR;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 26px;
+      }
+      .content {
+        color: var(--dgray-d-gray-600, #757575);
+        text-align: center;
+        /* Body_Medium/Body7_Medium */
+        font-family: Noto Sans KR;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 26px;
+      }
+    }
+    .btn-confirm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      @mixin btn {
+        width: 140px;
+        height: 50px;
+        font-family: Noto Sans KR;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+      }
+      .bt-cancel {
+        @include btn;
+        color: var(--main-color-green-03, #70c7ac);
+        background: var(--defult-white, #fff);
+        border: 1px solid var(--main-color-green-03, #70c7ac);
+      }
+      .bt-confirm {
+        @include btn;
+        color: var(--defult-white, #fff);
+        background: var(--main-color-green-03, #70c7ac);
+      }
+    }
+  }
+}
+
+// @media only screen and (max-width: 500px) {
+//   .custom-dialog {
+//     .dialog-confirm {
+//       padding: 77px 20px 60px 20px;
+//       width: 100%;
+//       .bt-cancel {
+//         width: calc(50% - 6px);
+//       }
+//       .bt-confirm {
+//         width: calc(50% - 6px);
+//       }
+//     }
+//     .dialog-info {
+//       width: 100%;
+//     }
+//   }
+// }

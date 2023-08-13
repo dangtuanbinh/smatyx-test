@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import "./styles.scss";
 import { Calendar, Views, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
@@ -8,13 +8,13 @@ import { addEvent } from "src/store/components/timetable/timetableSlice";
 import { useSelector } from "react-redux";
 import { getEventList } from "src/store/selector/RootSelector";
 import { openModal } from "src/store/components/customModal/modalSlice";
+import { useNavigate } from "react-router-dom";
 
 const classNamePrefix = "timetable";
 
 const Timetable = () => {
   const dispatch = useDispatch();
-
-  const [myEvents, setEvents] = useState<any>([]);
+  const navigate = useNavigate();
 
   const eventList = useSelector(getEventList);
 
@@ -26,7 +26,6 @@ const Timetable = () => {
     ({ start, end }: any) => {
       const title = window.prompt("New Event name");
       if (title) {
-        // setEvents((prev: any) => [...prev, { start, end, title }]);
         dispatch(
           addEvent({
             id: uuidv4(),
@@ -37,21 +36,21 @@ const Timetable = () => {
         );
       }
     },
-    []
-    // [setEvents]
+    [dispatch]
   );
 
-  const handleSelectEvent = useCallback((event: any) => {
-    // window.alert(event.title);
-    dispatch(
-      openModal({
-        template: "event-edit-view",
-        size: "normal",
-        data: event,
-      })
-    );
-    console.log(event);
-  }, []);
+  const handleSelectEvent = useCallback(
+    (event: any) => {
+      dispatch(
+        openModal({
+          template: "event-edit-view",
+          size: "normal",
+          data: event,
+        })
+      );
+    },
+    [dispatch]
+  );
 
   const { defaultDate, scrollToTime } = useMemo(
     () => ({
@@ -60,6 +59,13 @@ const Timetable = () => {
     }),
     []
   );
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("is-login");
+
+    if (isLogin !== "true") navigate("/auth");
+  }, []);
+
   return (
     <div className={classNamePrefix}>
       <Calendar

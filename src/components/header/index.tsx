@@ -7,10 +7,17 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleLogout = () => {
+    const localData = localStorage.getItem("is-login")
+
+    if(localData) localStorage.clear()
+    navigate("/auth")
+  }
+
   return (
     <div className={classNamePrefix}>
       <div className={`${classNamePrefix}__title`}>{location.pathname === "/" ? "Main" : location.pathname.substring(1)}</div>
-      <div className={`${classNamePrefix}__logout`}>
+      <div className={`${classNamePrefix}__logout`} onClick={handleLogout}>
         <span>Logout</span>
       </div>
     </div>

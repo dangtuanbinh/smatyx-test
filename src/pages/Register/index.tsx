@@ -1,8 +1,9 @@
 import "./style.scss";
 import { Button, Checkbox, Form, Input } from "antd";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function UserLogin() {
+function Register() {
   const navigate = useNavigate();
 
   const [form] = Form.useForm();
@@ -11,66 +12,49 @@ function UserLogin() {
 
   const onFinish = (values: any) => {
     console.log("Received values of form: ", values);
-
-    if (values.username === "admintest" && values.password === "12345678") {
-      localStorage.setItem("is-login", "true");
-      navigate("/");
-    }
+    navigate("/auth");
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="register-wrapper">
       <Form
-        name="normal_login"
-        className="login-form"
+        name="normal_register"
+        className="register-form"
         initialValues={{ remember: true }}
         onFinish={onFinish}
         layout={"vertical"}
         form={form}
       >
-        <div className="login-title">Login</div>
+        <div className="register-title">Register</div>
         <Form.Item
           label="User Name"
           name="username"
           rules={[{ required: true, message: "Please input your Username!" }]}
         >
-          <Input />
+          <Input autoComplete="new-user" />
         </Form.Item>
         <Form.Item
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please input your Password!" }]}
         >
-          <Input.Password />
-        </Form.Item>
-        <Form.Item className="remember-me-group">
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-          <div>
-            <a className="login-form-forgot" href="">
-              Find Id |{" "}
-            </a>
-            <a className="login-form-forgot" href="">
-              Find Password
-            </a>
-          </div>
+          <Input.Password autoComplete="new-password" />
         </Form.Item>
 
         <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
-            className={`login-form-button ${
-              userName && password ? "login-normal" : "login-disabled"
+            className={`register-form-button ${
+              userName && password ? "register-normal" : "register-disabled"
             }`}
           >
-            Log in
+            Sign up
           </Button>
           <div className="register-group">
-            Don't have an account?{" "}
-            <div onClick={() => navigate("/auth/register")} className="register-now">
-              Register now!
+            Have an account?{" "}
+            <div onClick={() => navigate("/register")} className="register-now">
+              Login now!
             </div>
           </div>
         </Form.Item>
@@ -78,4 +62,4 @@ function UserLogin() {
     </div>
   );
 }
-export default UserLogin;
+export default Register;

@@ -3,6 +3,7 @@ import { PrivateRoutes, PublicRoutes } from "./routers";
 import Layout from "./components/layout";
 import "react-big-calendar/lib/css/react-big-calendar.css"
 import CustomModal from "./components/CustomModal";
+import CustomDialog from "./components/customDialog";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       </Routes>
 
       <CustomModal />
+      <CustomDialog />
     </div>
   );
 }
