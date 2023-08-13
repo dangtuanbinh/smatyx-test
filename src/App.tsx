@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { PrivateRoutes, PublicRoutes } from "./routers";
 import Layout from "./components/layout";
+import "react-big-calendar/lib/css/react-big-calendar.css"
 
 function App() {
   return (

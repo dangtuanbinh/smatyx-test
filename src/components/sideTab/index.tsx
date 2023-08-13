@@ -49,11 +49,9 @@ const SideTab = () => {
                 location.pathname === t.title ? "tab-active" : "tab-unactive"
               }`}
               key={t.id}
+              onClick={() => navigate(t.path)}
             >
-              <div
-                className={`${classNamePrefix}__menu-item-title`}
-                onClick={() => navigate(t.path)}
-              >
+              <div className={`${classNamePrefix}__menu-item-title`}>
                 <span> {t.title}</span>
               </div>
             </div>
